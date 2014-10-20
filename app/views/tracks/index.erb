@@ -1,0 +1,8 @@
+<% @tracks.each do |track| %>
+  <div class="track">
+    <h3><%= track.songtitle %> <small>(by: <%= track.author %>)</small></h3>
+    <p>
+      <%= track.URL %>
+    </p>
+  </div>
+<% end %>
