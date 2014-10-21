@@ -1,8 +1,17 @@
 <% @tracks.each do |track| %>
   <div class="track">
-    <h3><%= track.songtitle %> <small>(by: <%= track.author %>)</small></h3>
+    <h3><a href="/tracks/<%= track.id %>"><%= track.songtitle %></a> <small>(by: <%= track.author %>)</small></h3>
     <p>
-      <%= track.URL %>
+      <a href="<%= track.url %>" target="new"><%= track.url %></a>
     </p>
+
+    <p>
+      <form action="/tracks/<%= track.id %>/upvotes" method="post">
+        <input type='submit' value='Upvote'> (<%= track.upvotes.count %> votes)
+      </form>
+    </p>
+
   </div>
 <% end %>
+
+<a href="/tracks/new">Add a track!</a>

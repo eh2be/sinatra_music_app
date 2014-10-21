@@ -1,0 +1,30 @@
+<% if @track && @track.errors.any? %>
+  <div>
+    <strong>There are some issues with your track, please fix them:</strong>
+    <ul>
+      <% @track.errors.each do |track| %>
+        <li><%= track %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h3>Add a Track</h3>
+<form method="post" action="/tracks">
+  <div>
+    <label>Song:</label>
+    <input type="text" name="songtitle" value="<%= @track && @track.songtitle %>">
+  </div>
+  <div>
+    <label>Author:</label>
+    <input type="text" name="author" value="<%= @track && @track.author %>">
+  </div>
+  <div>
+    <label>url:</label>
+    <input type="text" name="url" value="<%= @track && @track.url %>">
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>
+
